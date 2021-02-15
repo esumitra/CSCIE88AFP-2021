@@ -5,7 +5,8 @@ public class Cat extends AbstractAnimal implements ITrainable{
 	public static String whatISay = "I don't care what you asked me to say - I say MEOW only";
 	public static String humanGreeting = "Go away ...";	
 	protected boolean isFriendly = false;
-	
+//	public boolean withTreat = false;
+//
 	public Cat() {}
 
 	public Cat(String name, String eyeColor, String bodyColor) {
@@ -23,7 +24,27 @@ public class Cat extends AbstractAnimal implements ITrainable{
 		System.out.println(name + " says: cats do NOT do tricks ");
 		return ActionResult.FAILURE;		
 	}
-	
+
+	@Override
+	public ActionResult playWithToy(Toy toy) {
+		if (toy.isSqueaky()) {
+			System.out.println("Looks like a mouse... I'll play");
+			System.out.println(Toy.doFunStuff());
+			return ActionResult.SUCCESS;
+		}
+		else {
+			System.out.println("Don't feel like playing");
+			return ActionResult.FAILURE;
+		}
+
+
+	}
+
+//	@Override
+//	public ActionResult takeMedicine(AbstractAnimal withTreat) {
+//		return null;
+//	}
+
 	public static String saySomething(String somethingToSay){
 		return whatISay;
 	}
@@ -45,11 +66,21 @@ public class Cat extends AbstractAnimal implements ITrainable{
 		}
 	}
 
-	// this method is overwritten !
-	public boolean takeMedicine(boolean withTreat) {
-		System.out.println(name + " says: you won't trick me - I'm not taking it!");
-		return false;		
+	@Override
+	public ActionResult takeMedicine(boolean withTreat) {
+		if (withTreat) {
+			return ActionResult.SUCCESS;
+		} else {
+			return ActionResult.FAILURE;
+		}
 	}
+
+
+//	 //this method is overwritten !
+//	public boolean takeMedicine(boolean withTreat) {
+//		System.out.println(name + " says: you won't trick me - I'm not taking it!");
+//		return false;
+//	}
 
 	
 	public static void main(String[] args) throws Exception {
@@ -74,5 +105,13 @@ public class Cat extends AbstractAnimal implements ITrainable{
 	public void setFriendly(boolean isFriendly) {
 		this.isFriendly = isFriendly;
 	}
-	
+
+//	public boolean withTreat() {
+//		return withTreat;
+//	}
+//
+//	public void setTreat(boolean withTreat){
+//		this.withTreat = withTreat;
+//	}
+
 }

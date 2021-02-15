@@ -40,6 +40,32 @@ class AnimalManagerTest {
 		assertEquals(ActionResult.SUCCESS, result);
 	}
 
+	@Test
+	public void
+	testTrainForSuperTricks() {
+		ActionResult result = AnimalManager.trainForSuperTricks(sneaky, trickName);
+		assertEquals(ActionResult.FAILURE, result);
+		result = AnimalManager.trainForSuperTricks(bolt, trickName);
+		assertEquals(ActionResult.FAILURE, result);
+	}
+
+	@Test public void testTrainForSuperTricks_anonymous() {
+		ActionResult result = AnimalManager.trainForSuperTricks(
+				new ITrainable() {
+					@Override
+					public ActionResult doTrick(String trickName) {
+						return null;
+					}
+
+					public ActionResult doSuperTrick(String trickName) {
+						System.out.println("I always do tricks!");
+						return ActionResult.SUCCESS;
+					}
+				},
+				trickName);
+		assertEquals(ActionResult.SUCCESS, result);
+	}
+
 	@Test 
 	public void testSetupPlaydate() {
 		// unfriendly cat will not play with anyone

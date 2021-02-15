@@ -15,8 +15,8 @@ public class Toy {
 		this.hasFeathers = hasFeathers;
 	}
 
-	public void doFunStuff() {
-		System.out.println("I'm doing fun stuff!");
+	public static String doFunStuff() {
+		return "I'm doing fun stuff!";
 	}
 
 	@Override

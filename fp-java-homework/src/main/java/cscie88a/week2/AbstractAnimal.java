@@ -21,14 +21,14 @@ public abstract class AbstractAnimal {
 
 	public abstract ActionResult playWithMe(AbstractAnimal aFriend);
 
-	public boolean takeMedicine(boolean withTreat) {
-		if (withTreat) {
-			return true;
-		} else {
-			return false;
-		}
+	public String whoAreYou() {
+		return "I am " + name + "!";
 	}
-	
+
+	public abstract ActionResult takeMedicine(boolean withTreat);
+
+	public abstract ActionResult playWithToy(Toy toy);
+
 	public String getName() {
 		return name;
 	}
