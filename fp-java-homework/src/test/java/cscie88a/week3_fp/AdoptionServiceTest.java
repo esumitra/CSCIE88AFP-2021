@@ -19,6 +19,7 @@ class AdoptionServiceTest {
 		AdoptionService service = new AdoptionService();
 		DogFP lilo = new DogFP("Lilo");
 		lilo.setHasCurrentShots(true);
+		IAdoptable myLambda = () -> true;
 		IAdoptable lambdaMethodRef = lilo::checkForAdoptionStatusInstance;
 
 		ActionResult result = service.tryToAdopt( lambdaMethodRef );

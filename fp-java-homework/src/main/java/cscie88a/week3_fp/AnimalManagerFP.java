@@ -32,4 +32,9 @@ public class AnimalManagerFP {
         return animalToTrain.doManyTricks("jump", "roll");
     }
 
+    // use FI with multiple arguments
+    public static ActionResult doManyTricksWith4(ITrainable4 animalToTrain) {
+        return animalToTrain.myNewMethod("jump", "roll");
+    }
+
 }

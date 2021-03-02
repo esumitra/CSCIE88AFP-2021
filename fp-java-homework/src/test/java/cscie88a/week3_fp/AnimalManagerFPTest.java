@@ -122,6 +122,10 @@ class AnimalManagerFPTest {
 
 		ActionResult result = AnimalManagerFP.doManyTricks(animalToTrainAsNamedLambda);
 		assertEquals(ActionResult.SUCCESS, result);
+		ActionResult result4 = AnimalManagerFP.doManyTricksWith4(
+				(trick1, trick2) -> ActionResult.SUCCESS
+		);
+
 	}
 
 	/**
