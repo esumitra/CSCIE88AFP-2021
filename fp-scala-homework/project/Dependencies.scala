@@ -6,11 +6,15 @@ object Dependencies {
   )
 
   val circeVersion = "0.11.0"
+  val fs2Version = "2.2.1"
 
   lazy val core = Seq(
     // cats FP libary
     "org.typelevel" %% "cats-core" % "1.6.1",
     "org.typelevel" %% "mouse" % "0.16",
+    // fs2
+    "co.fs2" %% "fs2-core" % fs2Version,
+    "co.fs2" %% "fs2-io" % fs2Version,
     // support for JSON formats
     "io.circe" %% "circe-core" % circeVersion,
     "io.circe" %% "circe-generic" % circeVersion,
