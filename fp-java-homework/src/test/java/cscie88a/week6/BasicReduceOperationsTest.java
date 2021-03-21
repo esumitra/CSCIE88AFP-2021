@@ -22,7 +22,7 @@ class BasicReduceOperationsTest {
 
     @Test
     void concatStringsAsReduce() {
-        BasicReduceOperations.concatStringsAsReduce(5);
+        BasicReduceOperations.concatStringsAsReduce(50);
     }
 
     @Test
