@@ -1,4 +1,4 @@
-package cscie88a.week6.demo;
+package cscie88a.week8;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
-* Mar 22, 2020 marinapopova
+* Mar 22, 2021 marinapopova
 */
 
 @SuppressWarnings("ALL")
@@ -93,6 +93,16 @@ public class StateOperations {
 			testList.add(generatedString);
 		}
 		return testList;
+	}
+
+	// TODO implement this in HW8
+	public static void groupByFirstCharRegular() {
+
+	}
+
+	// TODO implement this in HW8
+	public static void groupByFirstCharConcurrent() {
+
 	}
 
 	/**

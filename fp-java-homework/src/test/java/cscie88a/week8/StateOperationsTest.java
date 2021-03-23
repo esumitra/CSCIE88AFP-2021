@@ -1,6 +1,5 @@
-package cscie88a.week6;
+package cscie88a.week8;
 
-import cscie88a.week6.demo.StateOperations;
 import org.junit.jupiter.api.Test;
 
 class StateOperationsTest {
@@ -24,5 +23,13 @@ class StateOperationsTest {
     public void testGroupByConcurrentThreeArg(){
         StateOperations.groupByConcurrentThreeArg(20);
     }
+
+    // TODO implement this for HW8
+    @Test
+    public void testGroupByFirstCharRegular(){}
+
+    // TODO implement this for HW8
+    @Test
+    public void testGroupByFirstCharConcurrent(){}
 
 }

@@ -65,6 +65,18 @@ public class BasicReduceOperations {
 		logger.info("Final joinedString = {}", joinedString);
 	}
 
+	// TODO explain why all strings are concatenated in order - even though the stream is parallel
+	public static void concatStringsAsReduceIsParallel(int listSize){
+		logger.info("concatStringsAsReduce():");
+		List<String> testList = StreamGeneration.getTestList(listSize);
+		String joinedString = testList.stream()
+				.parallel()
+				.unordered()
+				.reduce("",
+						(s1, s2) -> s1 + " " + s2); // BinaryOperator - accumulator
+		logger.info("Final joinedString = {}", joinedString);
+	}
+
 	/**
 	 * reduce() vs collect()
 	 * Mutable reduction - via collect()
