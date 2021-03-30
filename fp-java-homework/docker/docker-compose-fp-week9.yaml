@@ -1,0 +1,38 @@
+version: '3.5'
+networks:
+  kafka-demo:
+    name: kafka-demo-net
+    driver: bridge
+
+services:
+  zookeeper:
+    image: zookeeper:3.4.9
+    ports:
+      - "2181:2181"
+    networks:
+      - kafka-demo
+  kafka:
+    image: wurstmeister/kafka:2.12-2.5.0
+    environment:
+      KAFKA_BROKER_ID: 0
+      # KAFKA_BROKER_ID: 1
+      # (Hack for Mac)use this if you want to have docker host node to be used as broadcast ip
+      # HOSTNAME_COMMAND: "/sbin/ip route|awk '/src/ { print $$NF }'"
+      # HOSTNAME_COMMAND: "route -n | awk '/UG[ \t]/{print $$2}'"
+      # Use below for Linux
+      HOSTNAME_COMMAND: "ip route get 1.2.3.4 | awk '{print $$7}'"
+      # HOSTNAME_COMMAND: "ipconfig getifaddr en0"
+      #HOSTNAME_COMMAND: "$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "input_topic:10:1,sensor_type_count_topic:10:1,sensor_type_hourly_count_topic:10:1"
+      #KAFKA_ADVERTISED_LISTENERS: INTERNAL://:29092,EXTERNAL://_{HOSTNAME_COMMAND}:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://:29092,EXTERNAL://localhost:9092
+      KAFKA_LISTENERS: INTERNAL://:29092,EXTERNAL://:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT,INTERNAL:PLAINTEXT
+    depends_on:
+      - zookeeper
+    ports:
+      - '9092:9092'
+    networks:
+      - kafka-demo
