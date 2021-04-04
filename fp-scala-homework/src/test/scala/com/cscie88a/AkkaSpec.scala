@@ -2,7 +2,8 @@ package com.cscie88a
 import com.cscie88a.util.StreamUtils
 import org.scalatest.{AsyncWordSpec, BeforeAndAfterAll, Matchers}
 
-/** To write a new test, extend the AkkaSpec trait as shown below
+/**
+  * To write a new test, extend the AkkaSpec trait as shown below
   *
   * {{{
   * class MyAkkaTest extends AkkaSpec {
