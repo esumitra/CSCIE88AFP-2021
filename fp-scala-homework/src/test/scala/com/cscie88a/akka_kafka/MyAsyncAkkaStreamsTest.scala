@@ -14,5 +14,5 @@ class MyAsyncAkkaStreamsTest extends AkkaSpec {
   }
 
   // add tests below
-  
+
 }
