@@ -23,13 +23,13 @@ Run the following commands in the ./docker folder.
  
   In the fp-scala-homework directory, use
   
-  `sbt "testOnly *SimpleKafkaProducerTest*"`
+  `sbt "testOnly *KafkaProducerTest*"`
 
 - Run Akka Streams consumer
  
   In the fp-scala-homework directory, use
   
-  `sbt "testOnly *SimpleKafkaConsumerTest*"`
+  `sbt "testOnly *KafkaConsumerTest*"`
 
 
 ### Debugging Kafka
